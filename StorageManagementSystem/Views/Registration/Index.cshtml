@@ -1,0 +1,62 @@
+﻿@model StorageManagementSystem.Models.StudentRegister
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>User Registration Form in asp.net core mvc application</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-9">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Student_Email" class="control-label"></label>
+                <input asp-for="Student_Email" class="form-control" />
+                <span asp-validation-for="Student_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_FirstName" class="control-label"></label>
+                <input asp-for="Student_FirstName" class="form-control" />
+                <span asp-validation-for="Student_FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_LastName" class="control-label"></label>
+                <input asp-for="Student_LastName" class="form-control" type="password" />
+                <span asp-validation-for="Student_LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_UniversityNumber" class="control-label"></label>
+                <input asp-for="Student_UniversityNumber" class="form-control" />
+                <span asp-validation-for="Student_UniversityNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_Password" class="control-label"></label>
+                <input asp-for="Student_Password" class="form-control" type="password" />
+                <span asp-validation-for="Student_Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Campus_ID" class="control-label"></label>
+                <input asp-for="Campus_ID" class="form-control" />
+                <span asp-validation-for="Campus_ID" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save User Details" class="btn btn-primary" />
+            </div>
+            <b>@ViewBag.message</b>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
