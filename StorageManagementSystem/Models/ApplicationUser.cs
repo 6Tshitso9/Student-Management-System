@@ -12,6 +12,10 @@ namespace StorageManagementSystem.Models
         {
 
         }
-        public DbSet<StudentRegister> Student { get; set; }
+        public DbSet<DBStudent> Student { get; set; }
+
+        public DbSet<DBUniversity> University { get; set; }
+
+        public DbSet<DBCampus> Campus { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace StorageManagementSystem.Controllers
         }
         public IActionResult Index()
         {
+          
             return View();
         }
         public IActionResult Create()
@@ -28,10 +29,27 @@ namespace StorageManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(StudentRegister uc)
         {
-            _auc.Add(uc);
-            _auc.SaveChanges();
-            ViewBag.message = "You have successfully registered";
-            return View();
+            DBStudent cur = new DBStudent();
+            cur.Student_ID = uc.Student_ID;
+            cur.Student_FirstName = uc.Student_FirstName;
+            cur.Student_LastName = uc.Student_LastName;
+            cur.Student_Password = uc.Student_Password;
+            cur.Student_UniversityNumber = uc.Student_UniversityNumber;
+            cur.Student_Email = uc.Student_Email;
+            cur.Campus_ID = 1;
+            cur.Student_ContactNumber = uc.Student_ContactNumber;
+            try
+            {
+                _auc.Add(cur);
+                _auc.SaveChanges();
+                ViewBag.message = "You have successfully registered";
+                return View();
+            } 
+            catch  (Exception e)
+            {
+                return Index();
+            }
+           
         }
     }
 }
