@@ -1,0 +1,73 @@
+﻿@model StorageManagementSystem.Models.StorageVenueRental
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Storage History</h1>
+
+<form asp-controller="DBStorageRentals" asp-action="Index" method="get">
+    <p>
+        Tracking Number: <input type="text" asp-for="SearchString">
+
+        Venue Name: <input type="text" asp-for="venueName">
+
+
+        Ordering:
+        <select asp-for="orderBy">
+            <option></option>
+            <option value="checkin_date_asc">Check In Date Ascending</option>
+            <option value="checkin_date_desc">Check In Date Descending</option>
+            <option value="checkout_date_asc">Check Out Date Ascending</option>
+            <option value="checkout_date_desc">Check Out Date Descending</option>
+            <option value="Tracking_No_asc">Tracking Number Ascending</option>
+            <option value="Tracking_No_desc">Tracking Number Descending</option>
+            <option value="Venue_id_asc">Venue ID Ascending</option>
+            <option value="Venue_id_desc">Venue ID Descending</option>
+        </select>
+
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].Rental_Locator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].Rental_StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].Rental_EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].Rental_Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Rentals) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rental_Locator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rental_StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rental_EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rental_Price)
+            </td>
+
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Rental_Number">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

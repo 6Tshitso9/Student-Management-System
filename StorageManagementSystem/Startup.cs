@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StorageManagementSystem.Data;
 using StorageManagementSystem.Models;
 
 namespace StorageManagementSystem
@@ -25,8 +26,9 @@ namespace StorageManagementSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationUser>(options => options.UseSqlServer(Configuration.GetConnectionString("Myconnection")));
-   
+            services.AddDbContext<ApplicationUser>(options => options.UseSqlServer(Configuration.GetConnectionString("DBString")));
+            services.AddDbContext<StorageContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBString")));
+
             services.AddControllersWithViews();
         }
 

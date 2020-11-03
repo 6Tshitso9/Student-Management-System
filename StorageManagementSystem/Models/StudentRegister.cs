@@ -43,7 +43,6 @@ namespace StorageManagementSystem.Models
         [Display(Name = "University:")]
         public string University_Name;
         public IEnumerable<SelectListItem> Universities;
-       // public string confirmPassword { get; set; }
         [Required(ErrorMessage = "Please choose your campus")]
         [Display(Name = "Campus:")]
         public string Campus_Name { get; set; }
@@ -51,7 +50,6 @@ namespace StorageManagementSystem.Models
 
 
 
-       // public string university { get; set; }
 
 
 

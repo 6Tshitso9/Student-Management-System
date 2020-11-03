@@ -9,10 +9,10 @@ namespace StorageManagementSystem.Models
     public class DBUniversity
     {
         [Key]
-        public int University_ID { get; set; }
-        public string University_Name { get; set; }
+        public int Uni_ID { get; set; }
+        public string Uni_Name { get; set; }
 
-        public string University_City { get; set; }
+        public string Uni_City { get; set; }
 
     }
 }
