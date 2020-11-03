@@ -108,7 +108,15 @@ namespace StorageManagementSystem.Controllers
                 return NotFound();
             }
 
-            return View(dBStorageRental);
+            var ven = _context.Venue.Where(r => r.Venue_ID.Equals(dBStorageRental.Venue_ID));
+          
+
+            StorageRentalDetails details = new StorageRentalDetails();
+
+            details.venueName = ven.First().Venue_Name;
+     
+            details.rental = dBStorageRental;
+            return View(details);
         }
 
         // GET: DBStorageRentals/Create

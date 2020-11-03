@@ -17,5 +17,7 @@ namespace StorageManagementSystem.Data
         public DbSet<DBStorageRental> StorageRental { get; set; }
 
         public DbSet<DBVenue> Venue { get; set; }
+
+        public DbSet<DBStorageSize> StorageSize { get; set; }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model StorageManagementSystem.Models.StorageRentalDetails;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Storage Rental: @Html.DisplayFor(model => model.rental.Rental_Locator)</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.rental.Rental_Locator)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.rental.Rental_Locator)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.venueName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.venueName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.rental.Rental_StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.rental.Rental_StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.rental.Rental_EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.rental.Rental_EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.rental.Rental_Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.rental.Rental_Price)
+        </dd>
+
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to Storage History</a>
+</div>
